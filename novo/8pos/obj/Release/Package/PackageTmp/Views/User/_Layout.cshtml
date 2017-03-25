@@ -1,0 +1,45 @@
+﻿@model _8pos.Models.Entity.Layout
+
+<script src="~/Scripts/jquery-1.10.2.min.js"></script>
+<script src="~/Scripts/jquery.validate.min.js"></script>
+<script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+
+<fieldset>
+    <div class="form-horizontal">
+        <div class="row">
+            <div class="col-xs-12 col-sm-9">
+                @Html.LabelFor(layout => layout.Slogan)
+                @Html.TextBoxFor(layout => layout.Slogan, new { @class = "form-control" })
+                @Html.DisplayFor(layout => layout.Slogan)
+
+                @Html.LabelFor(layout => layout.ShortDescription)
+                @Html.TextBoxFor(layout => layout.ShortDescription, new { @class = "form-control" })
+            </div>
+            <div class="col-xs-12 col-sm-3">
+                <label>Add background</label>
+                <input type="file" name="picturebackground" id="picturebackground" class="input-file" />
+                <label for="picturebackground">
+                    <img src="~/Content/Images/ico_add_image.png" />
+                </label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12 col-sm-6">
+            </div>
+            <div class="col-xs-12 col-sm-6">
+            </div>
+        </div>
+        @* <div class="form-group">
+                @Html.LabelFor(model => model.PathPictureBackground, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.PathPictureBackground, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.PathPictureBackground, "", new { @class = "text-danger" })
+                </div>
+            </div>*@
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="NEXT" class="btn btn-orange pull-right" />
+            </div>
+        </div>
+    </div>
+</fieldset>

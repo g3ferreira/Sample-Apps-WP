@@ -1,0 +1,148 @@
+﻿﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section css{
+    <link rel="stylesheet" href="~/Content/Css/index.css" />
+}
+
+@section homeParallax{
+    <div class="parallax"></div>
+}
+
+<section id="landing" class="flex-content">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <h1>BE IN CONTROL OF YOUR BUSINESS</h1>
+                <br>
+                <p>
+                    Increase revenues and develop the relationship with your customers with the latest payment technologies and management systems.
+                </p>
+                <br>
+                <br>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<section id="features" class="flex-content">
+    <div class="container">
+        <h1>Features</h1>
+        <p>
+            We have the best features to increase your profit and upgrade your bussiness.<br> Select one of them to see
+            more details.
+        </p>
+        <br>
+        <br>
+        <div class="row">
+            <div class="col-xs-12 col-sm-4 panel">
+                <div class="panel-body flex-content" style="background-image: url('../Content/Images/img_create.png');">
+                    <div>
+                        <div class="btn btn-orange">Create your website</div><br>
+                        @Html.ActionLink("MORE", "CreateWebsite", "Home", new { @class = "btn btn-white" })
+                    </div>
+                </div>
+            </div>
+            <div class="col-xs-12 col-sm-4 panel">
+                <div class="panel-body flex-content" style="background-image: url('../Content/Images/img_marketing_place.png');">
+                    <div>
+                        <div class="btn btn-orange">Marketplace</div><br>
+                        @Html.ActionLink("MORE", "Marketplace", "Home", new { @class = "btn btn-white" })
+                    </div>
+                </div>
+            </div>
+            <div class="col-xs-12 col-sm-4 panel">
+                <div class="panel-body flex-content" style="background-image: url('../Content/Images/img_pos.png');">
+                    <div>
+                        <div class="btn btn-orange">POS</div><br>
+                        @Html.ActionLink("MORE", "POS", "Home", new { @class = "btn btn-white" })
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12 col-sm-4 panel">
+                <div class="panel-body flex-content" style="background-image: url('../Content/Images/img_ecommerce.png');">
+                    <div>
+                        <div class="btn btn-orange">E-Commerce</div><br>
+                        @Html.ActionLink("MORE", "Ecommerce", "Home", new { @class = "btn btn-white" })
+                    </div>
+                </div>
+            </div>
+            <div class="col-xs-12 col-sm-4 panel">
+                <div class="panel-body flex-content" style="background-image: url('../Content/Images/img_inventory.png');">
+                    <div>
+                        <div class="btn btn-orange">Inventory</div><br>
+                        @Html.ActionLink("MORE", "Inventory", "Home", new { @class = "btn btn-white" })
+                    </div>
+                </div>
+            </div>
+            <div class="col-xs-12 col-sm-4 panel">
+                <div class="panel-body flex-content" style="background-image: url('../Content/Images/img_dev.png');">
+                    <div>
+                        <div class="btn btn-orange">Developers Area</div><br>
+                        @Html.ActionLink("MORE", "DevelopersArea", "Home", new { @class = "btn btn-white"} )
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section id="whois" class="flex-content">
+    <div class="container text-center">
+        <h1>Who is 8POS?</h1>
+        <br>
+        <p>
+            Simply put? We’re a smarter Point of Sale company. Technology is always changing. And that’s exactly what 8POS
+            is all about.
+        </p>
+        <p>
+            8 POS started in Brazil in 2010 and grew to become then # 1 distributor of POS solutions in the market. When
+            8POS expanded their operations to the US, we observed the frustration of business owners whose needs were
+            not being met by POS systems. Software providers at the time were focused on industry-specific and size-specific
+            solutions. Making matters worse, even after a sizable investment in such systems most hardworking, responsible
+            business owners were wasting days and weeks re-entering system data to 8POS accounting products, or paying
+            a high-priced CPA once a year to do the same.
+        </p>
+        <p>
+            When we started working on 8POS, we had one clear aim – to provide retailers with an all-in-one solution to conveniently
+            manage their business anytime, anywhere with state of the art built in fraud detection tools. 8POS lets you
+            sell across all channels – in-store, online and on the go – and manage every aspect of your business. We
+            are at the forefront of innovation in this industry, and that’s where we intend to stay.
+        </p>
+        <p>
+            We asked ourselves, “What if there was a way to give every cashier in retail the same fast and familiar interface
+            for serving customers – but which allowed every business owner to choose the ideal, preferred back end for
+            them?”. Our research soon led us to discovering the wonderfully diverse invoicing and reporting capabilities
+            of worldwide 8POS products. We soon realized our idea had even more potential. Turning easily gathered Point
+            of Sale data directly into paid accounting invoices would mean that a CPA’s work is essentially done.
+        </p>
+    </div>
+</section>
+<section>
+    <div id="map"></div>
+    <script>
+                function initMap() {
+                    var myLatLang = {lat: 25.892257, lng: -80.163468};
+
+                    // Create a map object and specify the DOM element for display.
+                    var map = new google.maps.Map(document.getElementById('map'), {
+                        center: myLatLang,
+                        scrollwheel: false,
+                        zoom: 15
+                    });
+
+                    var marker = new google.maps.Marker({
+                        position: myLatLang,
+                        map: map,
+                        title: '8POS'
+                    });
+                }
+    </script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCNGyTeBlH0ui8uOmItFRYzAM3G0m7NQgQ&callback=initMap" async
+            defer></script>
+</section>

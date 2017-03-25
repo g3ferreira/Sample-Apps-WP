@@ -1,0 +1,113 @@
+﻿@model _8pos.Models.Entity.PosUser
+@{
+    ViewBag.Title = "SignUp";
+}
+@section css{
+    <link rel="stylesheet" href="~/Content/Css/details.css" />
+}
+
+<section class="detail flex-content">
+    <div id="login" class="container">
+        <div class="text-center">
+            <h1>Create an account</h1>
+            <p>Let's meet first? Please complete your profile account information to continue creating your website.</p>
+        </div>
+        @using (Html.BeginForm("UserCreate", "SignUp"))
+        {
+            @Html.AntiForgeryToken()
+            <div class="row">
+                <div class="col-xs-12 col-sm-6">
+                    <div class="form-group">
+                        @Html.LabelFor(user => user.FirstName)
+                        @Html.TextBoxFor(user => user.FirstName, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(user => user.FirstName, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="col-xs-12 col-sm-6">
+                    <div class="form-group">
+                        @Html.LabelFor(user => user.LastName)
+                        @Html.TextBoxFor(user => user.LastName, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(user => user.LastName, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-12">
+                    <div class="form-group">
+                        @Html.LabelFor(user => user.UserName)
+                        @Html.TextBoxFor(user => user.UserName, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(user => user.UserName, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-12">
+                    <div class="form-group">
+                        @Html.LabelFor(user => user.Email)
+                        @Html.TextBoxFor(user => user.Email, new { @class = "form-control", type = "email", maxlength = "100" })
+                        @Html.ValidationMessageFor(user => user.Email, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-xs-12 col-sm-7">
+                    @Html.LabelFor(user => user.Birthday)
+                    <div class="form-group">
+                        @Html.TextBoxFor(user => user.Birthday, new { @class = "form-control", data_format = "MM-DD-YYYY", data_template = "MMMM D YYYY", name = "Birthday" })
+                        @Html.ValidationMessageFor(user => user.Birthday, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="col-xs-12 col-sm-5">
+                    <div class="form-group">
+                        @Html.LabelFor(user => user.Gender)
+                        @Html.DropDownListFor(
+                             user => user.Gender,
+                                new SelectList(new List<Object>
+                                {
+                                    new { value = 0, text = "Male"},
+                                    new { value = 1, text = "Female"}
+                                }, "value", "text"),
+                                " ",
+                                new { @class = "form-control" })
+                        @Html.ValidationMessageFor(user => user.Gender, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-12 col-sm-6">
+                    <div class="form-group">
+                        @Html.LabelFor(user => user.Password)
+                        @Html.PasswordFor(user => user.Password, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(user => user.Password, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="col-xs-12 col-sm-6">
+                    <div class="form-group">
+                        @Html.LabelFor(user => user.ConfirmPassword)
+                        @Html.PasswordFor(user => user.ConfirmPassword, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(user => user.ConfirmPassword, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-8">
+                    @Html.CheckBoxFor(user => user.AcceptTerms)
+                    @Html.LabelFor(user => user.AcceptTerms)
+                    <a data-toggle="modal" data-target="#terms-privacy">Terms of Privacy</a>
+                    @Html.ValidationMessageFor(user => user.AcceptTerms, "", new { @class = "text-danger" })
+                </div>
+                <div class="col-xs-4">
+                    <input type="submit" value="SIGN UP" class="btn btn-orange pull-right" />
+                </div>
+            </div>
+        }
+        @*<div class="row">
+                <div class="text-center">
+                    <p>Or use your social accounts</p>
+                    <button type="button" class="btn btn-facebook">LOG IN WITH FACEBOOK</button>
+                    <button type="button" class="btn btn-google">LOG IN WITH GOOGLE</button>
+                </div>
+            </div>*@
+    </div>
+</section>

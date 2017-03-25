@@ -1,0 +1,60 @@
+﻿.main{
+    background-color: #f1f1f1;
+    min-height: 100%;
+    position: relative;
+}
+
+.box-label{
+    background-color: #e1e1e1;
+    padding: 20px;
+    border-radius: 4px;
+    margin-top: 15px;
+}
+
+.circle {
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+    margin: 0 6px;
+    cursor: pointer;
+    text-align: center;
+    vertical-align: middle;
+    display: inline-block;
+    line-height: 40px;
+}
+
+.loader{
+    height: 500px;
+    position: absolute;
+    right: 0;
+    left: 0;
+}
+
+.jumbotron{
+    background-color: #fff;
+    margin-bottom: 0px;
+}
+
+.tab-pane{
+    padding: 30px 0px;
+}
+
+.panel{
+    padding: 20px 30px;
+}
+
+ul {
+    -webkit-padding-start: 0px;
+}
+
+ul>li{
+    margin-bottom: 5px;
+}
+
+label{
+    margin: 0px;
+}
+
+.panel img{
+    width: 100%;
+}

@@ -1,0 +1,264 @@
+.fa {
+    color: #fff;
+}
+
+.panel {
+    min-height: 400px;
+    border-radius: 0px;
+    text-align: left !important;
+    line-height: 30px;
+    border: 2px solid #ccc;
+}
+
+.header-layout{
+    filter: blur(2px);
+}
+
+.panel-layout > img:first-child{
+    width: 100%;
+    height: 100%;
+}
+
+.panel-layout img#sample {
+    width: 100%;
+    height: auto;
+    opacity: 0.4;
+    filter: blur(3px);
+}
+
+#contact-layout{
+    padding: 10px 100px;
+}
+
+#contact-layout .form-group{
+    margin: 0;
+}
+
+.panel-layout #content {
+    position: absolute;
+    color: #fff;
+    word-wrap: break-word;
+    text-shadow: 2px 2px 10px #000;
+}
+
+.panel-layout .btn {
+    padding: 40px;
+}
+
+label[for='picturebackground'] {
+    min-width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+label[for='picturebackground'] img,
+label[for='logo'] img,
+label[for='profile'] img,
+label[for='mainimage'] img,
+label[for*='image'] img  {
+    width: 100%;
+}
+
+@media (min-width: 768px) {
+    label[for='picturebackground'] {
+    height: 130px;
+    }
+
+    label[for='picturebackground'] img {
+        width: 80%;
+        height: 100%;
+    }
+
+    .panel-layout{
+        height: 266px;
+        width: 468px;
+    }
+}
+
+#layout-1 h3 {
+    font-style: italic;
+    font-weight: 800;
+}
+
+#layout-1 #content{
+    margin-top: -80px;
+}
+
+.hidden {
+    display: none;
+}
+
+textarea {
+    resize: none;
+}
+
+.input-file {
+    width: 0.1px;
+    height: 0.1px;
+    opacity: 0;
+    overflow: hidden;
+    z-index: -1;
+}
+
+.input-file + label {
+    cursor: pointer;
+}
+
+.box-img {
+    height: 250px;
+    width: 250px;
+    border-style: dashed;
+    border-color: #cccccc;
+    overflow: hidden;
+    margin: auto;
+    right: 0;
+    left: 0;
+}
+
+.parent {
+    height: 300px;
+}
+
+#box-prof {
+    border-style: solid;
+}
+
+.box-opt,
+.box-img {
+    position: absolute;
+}
+
+.input-img,
+.img-selected {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+}
+
+.box-opt {
+    width: 250px;
+    height: 250px;
+    bottom: 10px;
+    margin: auto;
+    right: 0;
+    left: 0;
+    display: none;
+    text-align: center;
+    background: rgba(0,0,0,0);
+    background: linear-gradient(to bottom, rgba(0,0,0,0) 60%, rgba(0,0,0,0) 0%, rgba(36,36,36,1) 100%);
+}
+
+.box-opt img {
+    cursor: pointer;
+    margin: 180px 40px;
+}
+
+#box-logo .img-selected {
+    display: none;
+}
+
+#box-prof .input-img {
+    display: none;
+}
+
+.img-selected img {
+    width: 100%;
+}
+
+#logo-library .modal-body {
+    padding: 20px 30px;
+}
+
+#logo-library form .row {
+    min-height: 300px;
+}
+
+.imgs-product li{
+    width: 200px;
+}
+
+.products-list li img{
+    width: 150px;
+    height: 150px;
+}
+
+.circle {
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+    margin: 0 6px;
+    cursor: pointer;
+    text-align: center;
+    vertical-align: middle;
+    display: inline-block;
+    line-height: 40px;
+}
+
+.img-circle{
+    width: 150px;
+    height: 150px;
+}
+
+.canvas {
+    width: 280px;
+    height: 112px;
+    border: #000 solid 1px;
+    margin: 20px;
+}
+
+canvas {
+    cursor: pointer;
+}
+
+.no-padding{
+    padding: 0px;
+}
+
+div[id*='label-step-']{
+    font-weight: 700;
+    padding: 0px;
+    color: #ddd;
+}
+
+.panel-progress{
+    font-weight: 800;
+    color: #aaa;
+}
+
+.progress-bar{
+    background-color: #fff;
+    box-shadow: none;
+}
+
+.progress-bar img{
+    position: absolute;
+    background-color: #aaa;
+    border-radius: 20px;
+    padding: 1px;
+    margin-top: -15px;
+}
+
+.active{
+    color: #ff6600 !important;
+}
+
+.active:before{
+    color: #ff6600 !important;
+}
+
+.progress{
+    background-color: #fff;
+    height: 10px;
+}
+
+.table-products{
+    background-color: #fff;
+    border: 1px solid #e1e1e1;
+    box-shadow: 0 1px 1px rgba(0,0,0,.05);
+    border-radius: 4px;
+}
+
+.table-products>tbody>tr>td{
+    padding: 10px 30px;
+}

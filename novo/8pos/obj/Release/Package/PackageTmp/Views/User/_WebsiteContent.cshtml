@@ -1,0 +1,98 @@
+﻿@model _8pos.Models.Entity.PosUser
+
+@if (Model.Companies.Count <= 0)
+{
+    <div class="text-center" style="margin-top: 150px;">
+        <div>
+            <h2>You don't have a website created yet</h2>
+            @Html.RouteLink("Create your website ", "IndexCreate", new { @userId = Model.PosUserId }, new { @class = "btn btn-orange" })
+        </div>
+    </div>
+}
+else
+{
+    <div class="col-xs-12 col-sm-4">
+        <div class="panel">
+            <label>Website address</label><br /><br />
+            <a href="#">https://www.8pos.net/@Model.UserName</a>
+        </div>
+        <div class="panel">
+            <label>Basic informations</label><br />
+            <div style="padding: 20px 0px;">
+                <form>
+                    <div class="form-group">
+                        @Html.LabelFor(company => company.Companies[0].CompanyName)
+                        @Html.TextBoxFor(company => company.Companies[0].CompanyName, new { @class = "form-control", disabled = "disabled" })
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(company => company.Companies[0].Industries[0].Type)
+                        @Html.TextBoxFor(company => company.Companies[0].Industries[0].Type, new { @class = "form-control", disabled = "disabled" })
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(company => company.Companies[0].PhoneNumber)
+                        @Html.TextBoxFor(company => company.Companies[0].PhoneNumber, new { @class = "form-control", disabled = "disabled" })
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(company => company.Companies[0].Email)
+                        @Html.TextBoxFor(company => company.Companies[0].Email, new { @class = "form-control", disabled = "disabled" })
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(company => company.Companies[0].Address)
+                        @Html.TextBoxFor(company => company.Companies[0].Address, new { @class = "form-control", disabled = "disabled" })
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(company => company.Companies[0].ZipCode)
+                        @Html.TextBoxFor(company => company.Companies[0].ZipCode, new { @class = "form-control", disabled = "disabled" })
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(company => company.Companies[0].State)
+                        @Html.TextBoxFor(company => company.Companies[0].State, new { @class = "form-control", disabled = "disabled" })
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(company => company.Companies[0].Country)
+                        @Html.TextBoxFor(company => company.Companies[0].Country, new { @class = "form-control", disabled = "disabled" })
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(company => company.Companies[0].Address)
+                        @Html.TextBoxFor(company => company.Companies[0].Address, new { @class = "form-control", disabled = "disabled" })
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="col-xs-12 col-sm-4">
+        <div class="panel">
+            <label>Products and services</label>
+            <div class="row">
+                <div class="col-xs-12 col-sm-6">
+                    <div class="box-label">
+                        <label>Products</label>
+                        <h5>@Model.Companies[0].Products.Count() items</h5>
+                    </div>
+                </div>
+                <div class="col-xs-12 col-sm-6">
+                    <div class="box-label">
+                        <label>Services</label>
+                        <h5>0 items</h5>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="panel">
+            <label>Customize</label>
+            <div style="padding: 20px 0px;">
+                <form>
+                    <div class="form-group">
+                        @Html.LabelFor(company => company.Companies[0].Layout.Slogan)
+                        @Html.TextBoxFor(company => company.Companies[0].Layout.Slogan, new { @class = "form-control", disabled = "disabled" })
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(company => company.Companies[0].Layout.ShortDescription)
+                        @Html.TextBoxFor(company => company.Companies[0].Layout.ShortDescription, new { @class = "form-control", disabled = "disabled" })
+                    </div>
+                    <ul id="colors" class="list-inline"></ul>
+                </form>
+            </div>
+        </div>
+    </div>
+}

@@ -1,0 +1,102 @@
+﻿@model _8pos.Models.Entity.Company
+<fieldset>
+    <div class="container no-padding">
+        <div class="panel" style="padding: 0px;">
+            <div style="min-height: 700px; overflow: hidden; position: relative;">
+                <div style="background-image: linear-gradient(0deg, @(Model.Layout.ColorPattern), rgba(0,0,0,0.1) ,@(Model.Layout.ColorPattern)), url(@(Url.Action("GetBackgroundLayout", "Create"))); background-size: cover; background-repeat: no-repeat; width: 102%; height: 101%; margin: -5px; position: absolute; filter: blur(5px);"></div>
+                <div class="flex-content" style="min-height: 700px;">
+                    <div class="text-center" style="color: #fff; text-shadow: 1px 1px 5px rgba(0,0,0,0.8);">
+                        <div class="col-xs-12" style="margin-bottom: 50px;">
+                            <h1 style="font-style: italic; font-weight: 800;">@Model.Layout.Slogan</h1>
+                            <p>
+                                @Model.Layout.ShortDescription
+                            </p>
+                        </div>
+                        <div class="row" style="margin-bottom: 50px;">
+                            @{
+                                int countProducts = 0;
+                                if (Model.Products.Count > 3)
+                                {
+                                    countProducts = 3;
+                                }
+                                else
+                                {
+                                    countProducts = Model.Products.Count;
+                                }
+                                for (int i = 0; i < countProducts; i++)
+                                {
+                                    <div class="col-xs-12 col-sm-4">
+                                        <img class="img-circle" src="@Url.Action("GetImageProducts", "Create", new { index = i  })" />
+                                        <h3>@Model.Products[i].Name</h3>
+                                        <h5 style="padding: 0px 20px;">@Model.Products[i].Description</h5>
+                                    </div>
+                                }
+                            }
+                        </div>
+                        <div class="col-xs-12">
+                            <div class="btn" style="background-color: #fff; color: @(Model.Layout.ColorPattern); border-color: @Model.Layout.ColorPattern; cursor: default; font-weight: 800; text-shadow: none;">BUY NOW!</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row no-margin flex-content" style="height: 350px;">
+                <div>
+                    <div class="col-xs-12 col-sm-6 flex-content">
+                        <img src="@Html.Action("GetImageCompany", "Create", new { index = 0 })" style="width: 150px;" />
+                    </div>
+                    <div class="col-xs-12 col-sm-6">
+                        <h3>About</h3>
+                        <p>
+                            @Model.About
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="row no-margin flex-content" style="background-color: @(Model.Layout.ColorPattern); height: 250px;">
+                <div class="text-center">
+                    <h1 style="color: #fff;">Find the best for you</h1>
+                    <div class="btn" style="background-color: #fff; color: @(Model.Layout.ColorPattern); border-color: @Model.Layout.ColorPattern; cursor: default; font-weight: 800; text-shadow: none;">
+                        SEE ALL PRODUCTS
+                    </div>
+                </div>
+            </div>
+            <div id="contact-layout" class="row no-margin flex-content" style="min-height: 350px; padding: 20px 0px;">
+                <div>
+                    <div class="col-xs-12 col-sm-5" style="min-height: 300px; padding: 50px;">
+                        <h3>@Model.CompanyName</h3>
+                        <div class="row">
+                            <label class="col-sm-2">Phone</label>
+                            <span class="col-sm-10">@Model.PhoneNumber</span>
+                        </div>
+                        <div class="row">
+                            <label class="col-sm-2">Email</label>
+                            <span class="col-sm-10">@Model.Email</span>
+                        </div>
+                        <div class="row">
+                            <label class="col-sm-2">Address</label>
+                            <span class="col-sm-10">@Model.Address</span>
+                        </div>
+                    </div>
+                    <div class="col-xs-12 col-sm-7">
+                        <img src="~/Content/Images/form-sample.png" style="width: 100%;" />
+                        <div class="btn pull-right" style="background-color: #fff; background-color: @(Model.Layout.ColorPattern); color: #fff; cursor: default; font-weight: 800; text-shadow: none;">
+                            SEND
+                        </div>
+                    </div>
+                    <div class="col-xs-12 text-center">
+                        <h5>2017.8POS</h5>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-xs-12 col-sm-4">
+            <input type="submit" value="Back" formaction="BackToLayout" formnovalidate class="btn btn-white pull-left" />
+        </div>
+
+        @using (Html.BeginForm("MountCompany", "Create", FormMethod.Post, new { enctype = "multipart/form-data", @id = "form-create" }))
+        {
+            <input type="submit" formaction="MountCompany" value="Publish" class="btn pull-right btn-orange" />
+        }
+    </div>
+</fieldset>

@@ -1,0 +1,40 @@
+﻿﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <title>8POS</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+    <link rel="shortcut icon" href="~/Content/Images/icons/favicon.ico" type="image/x-icon" />
+    <link rel="icon" href="~/Content/Images/icons/favicon.ico" type="image/x-icon" />
+    <meta name="theme-color" content="#ff7800">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <link rel="stylesheet" href="~/Content/Css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/Content/Css/style.css" />
+    <link rel="stylesheet" href="~/Content/font-awesome-4.7.0/css/font-awesome.min.css" />
+    @RenderSection("css", false)
+    <link rel="manifest" href="manifest.json">
+    <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,900" rel="stylesheet">
+</head>
+<body>
+    @RenderSection("homeParallax", false)
+    <nav class="navbar navbar-default navbar-fixed-top">
+        @Html.Partial("_Navbar")
+    </nav>
+
+    @RenderBody()
+
+    <footer>
+        @Html.Partial("_Footer")
+    </footer>
+    <script src="~/Scripts/jquery-1.10.2.min.js"></script>
+    <script src="~/Scripts/moment.min.js"></script>
+    <script src="~/Scripts/combodate.js"></script>
+    <script src="~/Scripts/jquery.validate.min.js"></script>
+    <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+    <script src="~/Content/Scripts/bootstrap.min.js"></script>
+    <script src="~/Content/Scripts/parallax.js"></script>
+    <script src="~/Content/Scripts/scripts.js"></script>
+    @RenderSection("js", false)
+</body>
+</html>

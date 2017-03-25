@@ -1,0 +1,83 @@
+﻿@model _8pos.Models.Entity.PosUser
+@section css{
+    <link rel="stylesheet" href="~/Content/Css/details.css" />
+    <link rel="stylesheet" href="~/Content/Css/flaticon.css" />
+    <link rel="stylesheet" href="~/Content/Css/dashboard.css" />
+}
+<div class="main">
+    <div class="jumbotron text-center">
+        <h2>Hi, @Model.FirstName!</h2>
+    </div>
+    <div style="background-color:#fff; padding-bottom: 10px;">
+        <div class="container">
+            <ul class="nav nav-tabs nav-justified">
+                <li class="active"><a data-toggle="tab" href="#general">General</a></li>
+                <li><a data-toggle="tab" href="#website">Your website</a></li>
+                <li><a data-toggle="tab" href="#ecommerce">E-commerce</a></li>
+                <li><a data-toggle="tab" href="#inventory">Inventory</a></li>
+                <li><a data-toggle="tab" href="#marketplace">Marketplace</a></li>
+                <li><a data-toggle="tab" href="#pos">POS</a></li>
+                <li><a data-toggle="tab" href="#developers">Developers Area</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="loader flex-content">
+        <div>
+            <img src="~/Content/Images/ajax-loader.gif" />
+        </div>
+    </div>
+    @Html.HiddenFor(user => user.PosUserId)
+    <div class="container">
+        <div class="tab-content">
+            <div id="general" class="tab-pane fade in active">
+                <div id="general-content"></div>
+            </div>
+            <div id="website" class="tab-pane fade">
+                <div id="website-content"></div>
+            </div>
+            <div id="ecommerce" class="tab-pane fade">
+                <div class="flex-content maintenance-panel">
+                    <div class="flaticon-orange">
+                        <i class="flaticon-construction"></i>
+                        <h3>Coming soon</h3>
+                    </div>
+                </div>
+            </div>
+            <div id="inventory" class="tab-pane fade">
+                <div class="flex-content maintenance-panel">
+                    <div class="flaticon-orange">
+                        <i class="flaticon-construction"></i>
+                        <h3>Coming soon</h3>
+                    </div>
+                </div>
+            </div>
+            <div id="marketplace" class="tab-pane fade">
+                <div class="flex-content maintenance-panel">
+                    <div class="flaticon-orange">
+                        <i class="flaticon-construction"></i>
+                        <h3>Coming soon</h3>
+                    </div>
+                </div>
+            </div>
+            <div id="pos" class="tab-pane fade">
+                <div class="flex-content maintenance-panel">
+                    <div class="flaticon-orange">
+                        <i class="flaticon-construction"></i>
+                        <h3>Coming soon</h3>
+                    </div>
+                </div>
+            </div>
+            <div id="developers" class="tab-pane fade">
+                <div class="flex-content maintenance-panel">
+                    <div class="flaticon-orange">
+                        <i class="flaticon-construction"></i>
+                        <h3>Coming soon</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+@section js{
+    <script src="~/Content/Scripts/dashboard.js"></script>
+}

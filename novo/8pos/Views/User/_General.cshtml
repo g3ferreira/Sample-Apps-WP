@@ -1,0 +1,61 @@
+﻿@model _8pos.Models.Entity.PosUser
+
+<script src="~/Scripts/jquery-1.10.2.min.js"></script>
+<script src="~/Scripts/jquery.validate.min.js"></script>
+<script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+
+<fieldset>
+    <div class="form-horizontal">
+        @{if (Model.Companies != null && Model.Companies.Count > 0)
+            {
+                <div class="row">
+                    <div class="col-xs-12 col-sm-9">
+                        <h1>WebSite: www.8pos.net/@Model.Email</h1>
+                        @*@Html.LabelFor(user => user.Companies[0].WebSite)*@
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-12 col-sm-9">
+                            <h1>Company Informations</h1>
+                            <div>
+                                <h1>@Model.Companies[0].CompanyName</h1>
+                            </div>
+                            <div>
+                                <h1>@Model.Companies[0].Email</h1>
+                            </div>
+                            <div>
+                                <h1>@Model.Companies[0].PhoneNumber</h1>
+                            </div>
+                            <div>
+                                <h1>@Model.Companies[0].Address</h1>
+                            </div>
+                            <div>
+                                <h1>@Model.Companies[0].Layout.ShortDescription</h1>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="col-xs-12 col-sm-3">
+                        <label>Logo</label>
+                        <label for="picturebackground">
+                            <img src="@Url.Content(Model.Companies[0].PathPictureLogo)" />
+                        </label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-12 col-sm-6">
+                    </div>
+                    <div class="col-xs-12 col-sm-6">
+                    </div>
+                </div>
+            }
+            else
+            {
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-10">
+                        @Html.RouteLink("Create your WebSite ", "IndexCreate", new { @userId = Model.PosUserId }, new { @class = "btn btn-orange pull-center" })
+                    </div>
+                </div>
+            }
+        }
+    </div>
+</fieldset>

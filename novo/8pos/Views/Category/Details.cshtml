@@ -1,0 +1,36 @@
+﻿@model _8pos.Models.Entity.Category
+
+<div>
+    <h4>Category</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Category_Id)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Category_Id)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Description)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Description)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SelectedCategory)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SelectedCategory)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

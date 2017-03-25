@@ -1,0 +1,412 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props" Condition="Exists('..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{6C8D691F-8DDE-465A-9FDB-1E557237F301}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>_8pos</RootNamespace>
+    <AssemblyName>8pos</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="BCrypt.Net, Version=0.1.5073.29922, Culture=neutral, PublicKeyToken=6bcd409ee6bc9292, processorArchitecture=MSIL">
+      <HintPath>..\packages\BCrypt-Official.0.1.109\lib\BCrypt.Net.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="FluentNHibernate, Version=2.0.3.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\FluentNHibernate.2.0.3.0\lib\net40\FluentNHibernate.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Iesi.Collections, Version=4.0.0.0, Culture=neutral, PublicKeyToken=aa95f207798dfdb4, processorArchitecture=MSIL">
+      <HintPath>..\packages\Iesi.Collections.4.0.0.4000\lib\net40\Iesi.Collections.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.Agent.Intercept, Version=1.2.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.Agent.Intercept.1.2.1\lib\net45\Microsoft.AI.Agent.Intercept.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.DependencyCollector, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.DependencyCollector.2.0.0\lib\net45\Microsoft.AI.DependencyCollector.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.PerfCounterCollector, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.PerfCounterCollector.2.0.0\lib\net45\Microsoft.AI.PerfCounterCollector.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.ServerTelemetryChannel, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.2.0.0\lib\net45\Microsoft.AI.ServerTelemetryChannel.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.Web, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.Web.2.0.0\lib\net45\Microsoft.AI.Web.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.WindowsServer, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.WindowsServer.2.0.0\lib\net45\Microsoft.AI.WindowsServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.ApplicationInsights, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.2.0.0\lib\net45\Microsoft.ApplicationInsights.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\..\..\..\develop\NHibernatePostgres\NHibernatePostgres\bin\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="NHibernate, Version=4.1.0.4000, Culture=neutral, PublicKeyToken=aa95f207798dfdb4, processorArchitecture=MSIL">
+      <HintPath>..\packages\NHibernate.4.1.0.4000\lib\net40\NHibernate.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Npgsql, Version=3.1.9.0, Culture=neutral, PublicKeyToken=5d8b90d52f46fda7, processorArchitecture=MSIL">
+      <HintPath>..\packages\Npgsql.3.1.9\lib\net451\Npgsql.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Activities" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Net.Http.Formatting">
+      <HintPath>..\..\..\..\develop\NHibernatePostgres\NHibernatePostgres\bin\System.Net.Http.Formatting.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Http">
+      <HintPath>..\..\..\..\develop\NHibernatePostgres\NHibernatePostgres\bin\System.Web.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http.WebHost">
+      <HintPath>..\..\..\..\develop\NHibernatePostgres\NHibernatePostgres\bin\System.Web.Http.WebHost.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="System.Web.Razor">
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.3\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Webpages">
+      <HintPath>..\packages\Microsoft.AspNet.Webpages.3.2.3\lib\net45\System.Web.Webpages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Webpages.Deployment">
+      <HintPath>..\packages\Microsoft.AspNet.Webpages.3.2.3\lib\net45\System.Web.Webpages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Webpages.Razor">
+      <HintPath>..\packages\Microsoft.AspNet.Webpages.3.2.3\lib\net45\System.Web.Webpages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Helpers">
+      <HintPath>..\packages\Microsoft.AspNet.Webpages.3.2.3\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Web.Infrastructure">
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc">
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.3\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\Css\bootstrap.min.css" />
+    <Content Include="Content\Css\create.css" />
+    <Content Include="Content\Css\dashboard.css" />
+    <Content Include="Content\Css\details.css" />
+    <Content Include="Content\Css\flaticon.css" />
+    <Content Include="Content\Css\index.css" />
+    <Content Include="Content\Css\style.css" />
+    <Content Include="Content\Images\ajax-loader.gif" />
+    <Content Include="Content\Images\bg_home.png" />
+    <Content Include="Content\Images\create_1.png" />
+    <Content Include="Content\Images\create_2.png" />
+    <Content Include="Content\Images\create_3.png" />
+    <Content Include="Content\Images\create_header.png" />
+    <Content Include="Content\Images\developers_header.jpg" />
+    <Content Include="Content\Images\ecommerce_header.png" />
+    <Content Include="Content\Images\form-sample.png" />
+    <Content Include="Content\Images\icons\favicon.ico" />
+    <Content Include="Content\Images\icons\icon-192x192.png" />
+    <Content Include="Content\Images\ico_address.png" />
+    <Content Include="Content\Images\ico_add_image.png" />
+    <Content Include="Content\Images\ico_add_image_rect.png" />
+    <Content Include="Content\Images\ico_email.png" />
+    <Content Include="Content\Images\ico_facebook.png" />
+    <Content Include="Content\Images\ico_idioma_white.png" />
+    <Content Include="Content\Images\ico_instagram.png" />
+    <Content Include="Content\Images\ico_linkedin.png" />
+    <Content Include="Content\Images\ico_phone.png" />
+    <Content Include="Content\Images\ico_selected.png" />
+    <Content Include="Content\Images\ico_twitter.png" />
+    <Content Include="Content\Images\img_create.png" />
+    <Content Include="Content\Images\img_dev.png" />
+    <Content Include="Content\Images\img_ecommerce.png" />
+    <Content Include="Content\Images\img_inventory.png" />
+    <Content Include="Content\Images\img_marketing_place.png" />
+    <Content Include="Content\Images\img_pos.png" />
+    <Content Include="Content\Images\inventory_header.png" />
+    <Content Include="Content\Images\layout-2-sample.png" />
+    <Content Include="Content\Images\layout-3-sample.png" />
+    <Content Include="Content\Images\layout-4-sample.png" />
+    <Content Include="Content\Images\logo_8pos.png" />
+    <Content Include="Content\Images\logo_8pos_big.png" />
+    <Content Include="Content\Images\logo_8pos_white.png" />
+    <Content Include="Content\Images\marketplace_header.png" />
+    <Content Include="Content\Images\POS\A820_.png" />
+    <Content Include="Content\Images\POS\A900_.png" />
+    <Content Include="Content\Images\POS\A910_.png" />
+    <Content Include="Content\Images\POS\A920_.png" />
+    <Content Include="Content\Images\POS\A980_.png" />
+    <Content Include="Content\Images\POS\D180_COVER_.png" />
+    <Content Include="Content\Images\POS\D800P_.png" />
+    <Content Include="Content\Images\POS\D800_.png" />
+    <Content Include="Content\Images\POS\D820_1_.png" />
+    <Content Include="Content\Images\POS\D820_2_.png" />
+    <Content Include="Content\Images\POS\emailImage.png" />
+    <Content Include="Content\Images\POS\P980_.png" />
+    <Content Include="Content\Images\pos_header.png" />
+    <Content Include="Content\Images\sample-1.png" />
+    <Content Include="Content\Images\step-1.png" />
+    <Content Include="Content\Images\step-2.png" />
+    <Content Include="Content\Images\step-3.png" />
+    <Content Include="Content\Images\step-4.png" />
+    <Content Include="Content\Scripts\bootstrap.min.js" />
+    <Content Include="Content\Scripts\create.js" />
+    <Content Include="Content\Scripts\dashboard.js" />
+    <Content Include="Content\Scripts\jquery.min.js" />
+    <Content Include="Content\Scripts\parallax.js" />
+    <Content Include="Content\Scripts\scripts.js" />
+    <Content Include="Global.asax" />
+    <Content Include="LICENSE.txt" />
+    <Content Include="Scripts\ai.0.22.9-build00167.js" />
+    <Content Include="Scripts\ai.0.22.9-build00167.min.js" />
+    <Content Include="Content\Css\Flaticon.ttf" />
+    <Content Include="Content\Css\Flaticon.woff" />
+    <None Include="Properties\PublishProfiles\8npos.pubxml" />
+    <None Include="Properties\PublishProfiles\8POS WebSite.pubxml" />
+    <None Include="Properties\PublishProfiles\8pos.pubxml" />
+    <None Include="Properties\PublishProfiles\publish8pos.pubxml" />
+    <None Include="Properties\PublishProfiles\webdeploy.pubxml" />
+    <None Include="Scripts\jquery-1.10.2.intellisense.js" />
+    <Content Include="Scripts\combodate.js" />
+    <Content Include="Scripts\jquery-1.10.2.js" />
+    <Content Include="Scripts\jquery-1.10.2.min.js" />
+    <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.validate.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\moment-with-locales.js" />
+    <Content Include="Scripts\moment-with-locales.min.js" />
+    <Content Include="Scripts\moment.js" />
+    <Content Include="Scripts\moment.min.js" />
+    <Content Include="Web.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Data\DAO\UserDAO.cs" />
+    <Compile Include="App_Data\DAO\DAO.cs" />
+    <Compile Include="App_Data\SessionFactory.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\Utilities\SessionController.cs" />
+    <Compile Include="Controllers\ViewModel\ProfileViewModel.cs" />
+    <Compile Include="Controllers\View\CreateController.cs" />
+    <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Controllers\Api\UserApiController.cs" />
+    <Compile Include="Controllers\Utilities\EmailController.cs" />
+    <Compile Include="Controllers\Utilities\Utility.cs" />
+    <Compile Include="Controllers\ViewModel\CategoryViewModel.cs" />
+    <Compile Include="Controllers\ViewModel\CompanyViewModel.cs" />
+    <Compile Include="Controllers\ViewModel\ImageViewModel.cs" />
+    <Compile Include="Controllers\ViewModel\IndustryViewModel.cs" />
+    <Compile Include="Controllers\ViewModel\LayoutViewModel.cs" />
+    <Compile Include="Controllers\ViewModel\ProductViewModel.cs" />
+    <Compile Include="Controllers\ViewModel\UtilityViewModel.cs" />
+    <Compile Include="Controllers\View\CompanyController.cs" />
+    <Compile Include="Controllers\View\ImageController.cs" />
+    <Compile Include="Controllers\View\IndustryController.cs" />
+    <Compile Include="Controllers\ViewModel\StatusViewModel.cs" />
+    <Compile Include="Controllers\ViewModel\UserViewModel.cs" />
+    <Compile Include="Controllers\View\CategoryController.cs" />
+    <Compile Include="Controllers\View\HomeController.cs" />
+    <Compile Include="Controllers\View\LayoutController.cs" />
+    <Compile Include="Controllers\View\ProfileController.cs" />
+    <Compile Include="Controllers\View\SignUpController.cs" />
+    <Compile Include="Controllers\View\StatusController.cs" />
+    <Compile Include="Controllers\View\ProductController.cs" />
+    <Compile Include="Controllers\View\UserController.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Entity\Category.cs" />
+    <Compile Include="Models\Entity\Company.cs" />
+    <Compile Include="Models\Entity\Image.cs" />
+    <Compile Include="Models\Entity\Industry.cs" />
+    <Compile Include="Models\Entity\Layout.cs" />
+    <Compile Include="Models\Entity\Product.cs" />
+    <Compile Include="Models\Entity\Profile.cs" />
+    <Compile Include="Models\Entity\Status.cs" />
+    <Compile Include="Models\Entity\PosUser.cs" />
+    <Compile Include="Controllers\Utilities\MultiPropertyValidation.cs" />
+    <Compile Include="Models\Mapping\CategoryMap.cs" />
+    <Compile Include="Models\Mapping\CompanyMap.cs" />
+    <Compile Include="Models\Mapping\ImageMap.cs" />
+    <Compile Include="Models\Mapping\IndustryMap.cs" />
+    <Compile Include="Models\Mapping\LayoutMap.cs" />
+    <Compile Include="Models\Mapping\ProductMap.cs" />
+    <Compile Include="Models\Mapping\ProfileMap.cs" />
+    <Compile Include="Models\Mapping\StatusMap.cs" />
+    <Compile Include="Models\Mapping\PosUserMap.cs" />
+    <Compile Include="Models\ModelsInterface\IModelCrud.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\web.config" />
+    <Content Include="packages.config" />
+    <Content Include="ApplicationInsights.config">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Shared\_Navbar.cshtml" />
+    <Content Include="Views\Home\DevelopersArea.cshtml" />
+    <Content Include="Views\Shared\_Footer.cshtml" />
+    <Content Include="Views\Home\CreateWebsite.cshtml" />
+    <Content Include="Views\Home\Marketplace.cshtml" />
+    <Content Include="Views\Home\POS.cshtml" />
+    <Content Include="Views\Home\Ecommerce.cshtml" />
+    <Content Include="Views\Home\Inventory.cshtml" />
+    <Content Include="Views\Home\About.cshtml" />
+    <Content Include="manifest.json" />
+    <Content Include="Views\Create\Index.cshtml" />
+    <Content Include="Views\Create\_BasicInformations.cshtml" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Scripts\jquery-1.10.2.min.map" />
+    <Content Include="Views\User\Edit.cshtml" />
+    <Content Include="Views\User\Create.cshtml" />
+    <Content Include="Views\User\Details.cshtml" />
+    <Content Include="Views\User\Index.cshtml" />
+    <Content Include="Views\User\Delete.cshtml" />
+    <Content Include="Views\SignUp\Index.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Status\Index.cshtml" />
+    <Content Include="Views\Status\Edit.cshtml" />
+    <Content Include="Views\Status\Create.cshtml" />
+    <Content Include="Views\Status\Details.cshtml" />
+    <Content Include="Views\Status\Delete.cshtml" />
+    <Content Include="Views\User\Validation.cshtml" />
+    <Content Include="Views\Industry\Index.cshtml" />
+    <Content Include="Views\SignUp\AccountValidation.cshtml" />
+    <Content Include="Views\Industry\Create.cshtml" />
+    <Content Include="Views\Industry\Edit.cshtml" />
+    <Content Include="Views\Industry\Delete.cshtml" />
+    <Content Include="Views\Category\Index.cshtml" />
+    <Content Include="Views\Category\Create.cshtml" />
+    <Content Include="Views\Category\Edit.cshtml" />
+    <Content Include="Views\Category\Details.cshtml" />
+    <Content Include="Views\Category\Delete.cshtml" />
+    <Content Include="Views\Create\_Products.cshtml" />
+    <Content Include="Views\Create\_Layout.cshtml" />
+    <Content Include="Views\Create\_Resume.cshtml" />
+    <Content Include="Views\User\SignIn.cshtml" />
+    <Content Include="Views\User\UserDashBoard.cshtml" />
+    <Content Include="Views\User\_Layout.cshtml" />
+    <Content Include="Views\User\_General.cshtml" />
+    <Content Include="Views\Shared\_Login.cshtml" />
+    <Content Include="Views\Create\_StepsBar.cshtml" />
+    <Content Include="Views\User\_GeneralContent.cshtml" />
+    <Content Include="Views\User\_WebsiteContent.cshtml" />
+    <Content Include="Views\Profile\Index.cshtml" />
+    <Content Include="Views\Profile\Create.cshtml" />
+    <Content Include="Views\Profile\Edit.cshtml" />
+    <Content Include="Views\Profile\Delete.cshtml" />
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Content\font-awesome-4.7.0\" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>62364</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:9090/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props'))" />
+    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

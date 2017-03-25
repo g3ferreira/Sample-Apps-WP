@@ -1,0 +1,38 @@
+﻿@model _8pos.Models.Entity.PosUser
+@section css{
+    <link rel="stylesheet" href="~/Content/Css/details.css" />
+    <link rel="stylesheet" href="~/Content/Css/create.css" />
+    <link rel="stylesheet" href="~/Content/Css/colors.css" />
+    <link rel="stylesheet" href="~/Content/Css/flaticon.css" />
+}
+<div class="detail">
+    <div class="container">
+        <div class="flex-content">
+            <div class="validation-icon flex-content">
+                <i class="flaticon-correct"></i>
+            </div>
+        </div>
+        <div class="text-center">
+            <h1>Well done!</h1>
+            <h4>Now that you already confirm your account you can explore all feature at 8POS.</h4>
+        </div>
+        <br />
+        <form>
+            <div class="flex-content">
+                <div>
+                    @{
+                        if (Model.Status.Type.Equals("enable"))
+                        {
+                            @Html.RouteLink("Create your website ", "IndexCreate", new { @userId = Model.PosUserId }, new { @class = "btn btn-orange", style = "width: 100%;" })
+                            <br />
+                            @Html.RouteLink("Dashboard", "GoToDashBoard", new { @userId = Model.PosUserId }, new { @class = "btn btn-white", style = "width: 100%;" })
+
+                        }
+                    }
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+

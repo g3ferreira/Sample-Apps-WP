@@ -1,0 +1,239 @@
+﻿@model _8pos.Models.Entity.Product
+
+@{
+    List<SelectListItem> listCategories = new List<SelectListItem>();
+    List<_8pos.Models.Entity.Category> categories = new List<_8pos.Models.Entity.Category>(); categories = (List<_8pos.Models.Entity.Category>)new _8pos.Controllers.ViewModel.CategoryViewModel().get();
+    foreach (var category in categories)
+    {
+        listCategories.Add(new SelectListItem
+        {
+            Text = category.Description,
+            Value = category.Category_Id.ToString()
+        });
+    }
+}
+@using (Html.BeginForm("SaveProduct", "Create", FormMethod.Post, new { enctype = "multipart/form-data", @id = "form-create" }))
+{
+    <fieldset>
+        <div class="panel">
+            @*@Html.Action("SetCompanySession", "Create", Model.Company)*@
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            <div class="row">
+                <div class="col-xs-12 col-sm-5">
+                    @Html.LabelFor(product => product.Name)
+                    @Html.TextBoxFor(product => product.Name, new { @class = "form-control", maxlength = "30" })
+                    @Html.ValidationMessageFor(product => product.Name, "", new { @class = "text-danger" })
+                </div>
+                <div class="col-xs-12 col-sm-2">
+
+
+                    @Html.LabelFor(product => product.Price)
+                    @Html.TextBoxFor(product => product.Price, new { @class = "form-control", value = "" })
+                    @Html.ValidationMessageFor(product => product.Price, "", new { @class = "text-danger", Value = "" })
+                </div>
+                <div class="col-xs-12 col-sm-5">
+                    @Html.LabelFor(product => product.Category)
+                    @Html.DropDownListFor(product => product.Category.Category_Id, listCategories, " ", new { @class = "form-control" })
+                    @Html.ValidationMessageFor(product => product.Category, "", new { @class = "text-danger" })
+                </div>
+            </div>
+            <br />
+            <div class="row">
+                <div class="col-xs-12">
+                    @Html.LabelFor(product => product.Description)
+                    @Html.TextAreaFor(product => product.Description, new { @class = "form-control", rows = "4", maxlength = "200" })
+                    @Html.ValidationMessageFor(product => product.Description, "", new { @class = "text-danger" })
+                </div>
+            </div>
+            <br />
+            <div class="row">
+                <ul class="list-inline col-xs-12 imgs-product">
+                    <li>
+                        <label>Main Image*</label>
+                        <input type="file" name="mainimage" id="mainimage" class="input-file" />
+                        <label for="mainimage">
+                            @*<img src="~/Content/Images/ico_add_image.png" />*@
+
+                            @{
+
+                                if (Model.Company.Products != null)
+                                {
+
+                                    if (Model.Company.Products != null && Model.Company.Products.Count > 0 && Model.Company.backProduct == true && Model.Company.Products[Model.Company.Products.Count - 1].Images != null && Model.Company.Products[Model.Company.Products.Count - 1].Images[0] != null)
+                                    {
+
+                                        <img class="img-circle" src="@Url.Action("GetListImageProducts", "Create", new { indexProduct = Model.Company.Products.Count - 1, indexImage = 0 })" />
+
+                                    }
+                                    else if (Model.Company.Products != null && Model.Company.Products.Count > 0 && Model.Company.Products[Model.Company.Products.Count - 1].Images == null)
+                                    {
+                                        <img src="~/Content/Images/ico_add_image.png" />
+                                        <label class="text-danger"> please, select main image!</label>
+                                        Model.Company.Products.Remove(Model.Company.Products[Model.Company.Products.Count - 1]);
+
+                                    }
+                                    else
+                                    {
+                                        <img src="~/Content/Images/ico_add_image.png" />
+                                    }
+
+
+                                }
+                                else
+                                {
+                                    <img src="~/Content/Images/ico_add_image.png" />
+                                }
+
+                            }
+                        </label>
+                    </li>
+                    <li>
+                        <label>Others</label>
+                        <input type="file" name="image1" id="image1" class="input-file" />
+                        <label for="image1">
+                            @{
+
+                                if (Model.Company.Products != null)
+                                {
+
+                                    if (Model.Company.Products != null && Model.Company.Products.Count > 0 && Model.Company.backProduct == true && Model.Company.Products[Model.Company.Products.Count - 1].Images != null && Model.Company.Products[Model.Company.Products.Count - 1].Images[1] != null)
+                                    {
+
+                                        <img class="img-circle" src="@Url.Action("GetListImageProducts", "Create", new { indexProduct = Model.Company.Products.Count - 1, indexImage = 1 })" />
+
+                                    }
+                                    else
+                                    {
+                                        <img src="~/Content/Images/ico_add_image.png" />
+                                    }
+
+
+                                }
+                                else
+                                {
+                                    <img src="~/Content/Images/ico_add_image.png" />
+                                }
+
+                            }
+                        </label>
+                    </li>
+                    <li>
+                        <label></label>
+                        <input type="file" name="image2" id="image2" class="input-file" />
+                        <label for="image2">
+                            @{
+
+                                if (Model.Company.Products != null)
+                                {
+
+                                    if (Model.Company.Products != null && Model.Company.Products.Count > 0 && Model.Company.backProduct == true &&  Model.Company.Products[Model.Company.Products.Count - 1].Images != null && Model.Company.Products[Model.Company.Products.Count - 1].Images[2] != null)
+                                    {
+
+                                        <img class="img-circle" src="@Url.Action("GetListImageProducts", "Create", new { indexProduct = Model.Company.Products.Count - 1, indexImage = 2 })" />
+
+                                    }
+                                    else
+                                    {
+                                        <img src="~/Content/Images/ico_add_image.png" />
+                                    }
+
+
+                                }
+                                else
+                                {
+                                    <img src="~/Content/Images/ico_add_image.png" />
+                                }
+
+                            }
+
+
+
+                        </label>
+                    </li>
+                    <li>
+                        <label></label>
+                        <input type="file" name="image3" id="image3" class="input-file" />
+                        <label for="image3">
+                            @{
+
+                                if (Model.Company.Products != null)
+                                {
+
+                                    if (Model.Company.Products != null && Model.Company.Products.Count > 0 && Model.Company.backProduct == true && Model.Company.Products[Model.Company.Products.Count - 1].Images != null && Model.Company.Products[Model.Company.Products.Count - 1].Images[3] != null)
+                                    {
+
+
+                                        <img class="img-circle" src="@Url.Action("GetListImageProducts", "Create", new { indexProduct = Model.Company.Products.Count - 1, indexImage = 3 })" />
+
+                                    }
+                                    else
+                                    {
+                                        <img src="~/Content/Images/ico_add_image.png" />
+                                    }
+
+
+                                }
+                                else
+                                {
+                                    <img src="~/Content/Images/ico_add_image.png" />
+                                }
+
+                            }
+                        </label>
+                    </li>
+                </ul>
+
+           
+            </div>
+            <div class="flex-content">
+                @{
+                    if (Model.Company.Products != null && Model.Company.Products.Count > 0 && Model.Company.Products[Model.Company.Products.Count - 1].MessageError != null)
+                    {
+                        <label class="text-danger"> @Model.Company.Products[Model.Company.Products.Count - 1].MessageError</label>
+                        Model.Company.Products.Remove(Model.Company.Products[Model.Company.Products.Count - 1]);
+
+                    }
+                    else if (Model.Company.Products != null && Model.Company.Products.Count == 0 && Model.Company.backProduct != false)
+                    {
+                        <label class="text-danger">Please, insert one product.</label>
+                    }
+                }
+
+            </div>
+
+            <div class="row">
+                <div class="col-xs-12">
+                    <input id="add-product" type="submit" value="Add item" formaction="SaveProduct" formmethod="post" class="btn btn-orange pull-right" />
+                </div>
+            </div>
+        </div>
+        @if (Model.Company.Products != null)
+        {
+            <label>Items added</label>
+            <table class="table table-products">
+                @foreach (var product in Model.Company.Products)
+                {
+                    <tr>
+                        <td>
+                            @product.Name
+                        </td>
+                        <td>
+                            @product.Price
+                        </td>
+                    </tr>
+                }
+            </table>
+        }
+        <div class="row">
+            <div class="col-xs-12 col-sm-6">
+                <input type="submit" value="Back" formnovalidate formaction="BackToBasicInformations" formmethod="post" class="btn btn-white pull-left" />
+            </div>
+            <div class="col-xs-12 col-sm-6">
+                @using (Html.BeginForm("CreateProduct", "Create", FormMethod.Post, new { enctype = "multipart/form-data", @id = "form-create" }))
+                {
+                    <input type="submit" value="Next" formnovalidate class="btn btn-orange pull-right" />
+                }
+            </div>
+        </div>
+    </fieldset>
+                    }

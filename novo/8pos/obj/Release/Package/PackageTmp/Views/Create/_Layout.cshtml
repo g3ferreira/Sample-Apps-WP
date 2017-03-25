@@ -1,0 +1,88 @@
+﻿@model _8pos.Models.Entity.Layout
+
+<script src="~/Scripts/jquery-1.10.2.min.js"></script>
+<script src="~/Scripts/jquery.validate.min.js"></script>
+<script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+<fieldset>
+    <div class="panel">
+        <div class="row">
+            <div class="col-xs-12">
+                @Html.LabelFor(layout => layout.ColorPattern)
+                <ul id="colors" class="list-inline"></ul>
+                @Html.HiddenFor(layout => layout.ColorPattern)
+                @Html.ValidationMessageFor(layout => layout.ColorPattern, "", new { @class = "text-danger", Value = "" })
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12 col-sm-9">
+                @Html.LabelFor(layout => layout.Slogan)
+                @Html.TextBoxFor(layout => layout.Slogan, new { @class = "form-control", maxlength = "60" })
+                @Html.ValidationMessageFor(layout => layout.Slogan, "", new { @class = "text-danger", Value = "" })
+                <br />
+                @Html.LabelFor(layout => layout.ShortDescription)
+                @Html.TextBoxFor(layout => layout.ShortDescription, new { @class = "form-control", maxlength = "120" })
+                @Html.ValidationMessageFor(layout => layout.ShortDescription, "", new { @class = "text-danger", Value = "" })
+            </div>
+            <div class="col-xs-12 col-sm-3">
+                <label>Add background*</label>
+                <input type="file" name="picturebackground" id="picturebackground" class="input-file" />
+                <label for="picturebackground">
+                    <img src="~/Content/Images/ico_add_image_rect.png" />
+                </label>
+            </div>
+        </div>
+        <br />
+        @Html.LabelFor(layout => layout.Theme)
+        @Html.HiddenFor(layout => layout.Theme)<br />
+        @Html.ValidationMessageFor(layout => layout.Theme, "", new { @class = "text-danger", Value = "" })
+        <div class="row">
+            <div class="col-xs-12 col-md-6">
+                <div id="layout-1" class="panel-layout text-center flex-content" style="background-color: #ff7800;">
+                    <img src="~/Content/Images/sample-1.png" />
+                </div>
+                <button id="btn-layout-1" type="button" class="btn btn-white">SELECT</button>
+            </div>
+            <div class="col-xs-12 col-md-6">
+                <div id="" class="panel-layout text-center flex-content">
+                    <img id="sample" src="~/Content/Images/layout-2-sample.png" />
+                    <div id="content">
+                        <h2>SOON</h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12 col-md-6">
+                <div id="" class="panel-layout text-center flex-content">
+                    <img id="sample" src="~/Content/Images/layout-3-sample.png" />
+                    <div id="content">
+                        <h2>SOON</h2>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xs-12 col-md-6">
+                <div id="" class="panel-layout text-center flex-content">
+                    <img id="sample" src="~/Content/Images/layout-4-sample.png" />
+                    <div id="content">
+                        <h2>SOON</h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+
+        <div class="col-xs-12 col-sm-12">
+            @using (Html.BeginForm("CreateLayout", "Create", FormMethod.Post, new { enctype = "multipart/form-data", @id = "form-create" }))
+            {
+                <input type="submit" value="Next" class="btn btn-orange pull-right" />
+            }
+
+            @using (Html.BeginForm("BackProduct", "Create", FormMethod.Post, new { enctype = "multipart/form-data", @id = "form-create" }))
+            {
+                <input type="submit" value="Back" formnovalidate class="btn btn-white pull-left" />
+            }
+        </div>
+    </div>
+
+</fieldset>

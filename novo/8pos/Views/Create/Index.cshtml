@@ -1,0 +1,91 @@
+﻿@model _8pos.Models.Entity.Company
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@section css{
+    <link rel="stylesheet" href="~/Content/Css/details.css" />
+    <link rel="stylesheet" href="~/Content/Css/create.css" />
+    <link rel="stylesheet" href="~/Content/Css/colors.css" />
+    <link rel="stylesheet" href="~/Content/Css/flaticon.css" />
+}
+<div class="detail">
+
+    <div class="text-center" style="padding-bottom: 40px;">
+        <h1>Create your website</h1>
+        <p>It is time to present your company to the world. Add your basic informations for your customers.</p>
+    </div>
+    <div class="container">
+        @Html.Partial("_StepsBar", Model)
+        <br />
+        @{
+
+
+            switch (Model.SelectedView)
+            {
+                case "1":
+                    using (Html.BeginForm("CreateCompany", "Create", FormMethod.Post, new { enctype = "multipart/form-data", @id = "form-step-1" }))
+                    {
+                        @Html.AntiForgeryToken()                
+                        @Html.Partial("_BasicInformations")
+                    }
+                    break;
+                case "2":
+                    using (Html.BeginForm("CreateProduct", "Create", FormMethod.Post, new { enctype = "multipart/form-data", @id = "form-create" }))
+                    {
+                        if (Model.Products != null && Model.Products.Count > 0 && Model.backProduct == true)
+                        {
+                            Model.Products[Model.Products.Count - 1].Company = Model;
+                            @Html.AntiForgeryToken()
+                            @Html.Partial("_Products"/* Model.Products[Model.Products.Count - 1]*/);
+                        }
+                        else
+                        {
+                            _8pos.Models.Entity.Product product = new _8pos.Models.Entity.Product();
+                            product.Company = Model;
+                            @Html.AntiForgeryToken()
+                            @Html.Partial("_Products", product);
+
+                        }
+                    }
+                    break;
+
+                case "3":
+                    using (Html.BeginForm("CreateLayout", "Create", FormMethod.Post, new { enctype = "multipart/form-data", @id = "form-create" }))
+                    {
+                        @Html.AntiForgeryToken()
+                        ViewBag.CompanyProducts = Model;
+                        if (Model.Layout == null)
+                        {
+                            @Html.AntiForgeryToken()
+                            @Html.Partial("_Layout", new _8pos.Models.Entity.Layout());
+                        }
+                        else
+                        {
+                            @Html.Partial("_Layout", Model.Layout);
+
+                        }
+                    }
+                    break;
+                case "4":
+                    using (Html.BeginForm("MountCompany", "Create"))
+                    {
+                        @Html.AntiForgeryToken()
+                        @Html.Partial("_Resume", Model);
+                    }
+
+                    break;
+                default:
+                    <text>
+                        <h1>WTF Site</h1>
+                    </text>
+                    break;
+            }
+        }
+    </div>
+</div>
+
+@section js {
+    <script src="~/Scripts/jquery.mask.min.js"></script>
+    <script src="~/Content/Scripts/create.js"></script>
+}

@@ -1,0 +1,16 @@
+{
+  "background_color": "#ff7800",
+  "description": "Increase revenues and develop the relationship with your customers with the latest payment technologies and management systems.",
+  "display": "standalone",
+  "icons": [
+    {
+      "sizes": "192x192",
+      "src": "/Content/Images/icons/icon-192x192.png",
+      "type": "image/png"
+    }
+  ],
+  "name": "8POS",
+  "short_name": "8POS",
+  "start_url": ".",
+  "theme_color": "#ff7800"
+}

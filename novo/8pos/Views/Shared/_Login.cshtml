@@ -1,0 +1,48 @@
+﻿@model _8pos.Models.Entity.PosUser
+
+<a class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+    Login
+</a>
+<ul class="dropdown-menu">
+    <li>
+        @using (Html.BeginForm("RequestLogin", "User"))
+        {
+            @Html.AntiForgeryToken()
+            <div class="row">
+                <div class="col-xs-12">
+                    @Html.LabelFor(user => user.UserName)
+                    @Html.TextBoxFor(user => user.UserName, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(user => user.UserName, "", new { @class = "text-danger" })
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-12">
+                    @Html.LabelFor(user => user.Password)
+                    @Html.PasswordFor(user => user.Password, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(user => user.Password, "", new { @class = "text-danger" })
+
+                    @{
+                        if (Model != null && Model.MessageError != string.Empty)
+                        {
+                            <label class="text-danger">@Model.MessageError</label>
+                        }
+                    }
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-12">
+                    <input type="submit" value="Log in" class="btn btn-orange pull-right" />
+                </div>
+            </div>
+            <hr />
+            <div class="row">
+                <div class="col-xs-12">
+                    <div class="text-center">
+                        <label>New on 8POS?</label>
+                        @Html.ActionLink("Sign Up", "Index", "SignUp", null, new { style = "padding: 0px 5px;" })
+                    </div>
+                </div>
+            </div>
+         }
+    </li>
+</ul>

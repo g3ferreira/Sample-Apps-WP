@@ -1,0 +1,61 @@
+﻿@model _8pos.Models.Entity.PosUser
+
+<div class="col-xs-12 col-sm-4">
+    <div class="row">
+        <div class="panel">
+            <label>Your website</label><br />
+            <span>Online address</span>
+            @if (Model.Companies.Count <= 0)
+            {
+                <form class="form-horizontal">
+                    <div class="form-group flex-content">
+                        <span class="col-sm-6">No website created</span>
+                        <div class="col-sm-6">
+                            @Html.RouteLink("Create your website ", "IndexCreate", new { @userId = Model.PosUserId }, new { @class = "btn btn-orange" })
+                        </div>
+                    </div>
+                </form>
+            }
+            else
+            {
+                <br /><br />
+                <a href="#">https://www.8pos.net/@Model.UserName</a>
+            }
+        </div>
+    </div>
+    <div class="row">
+        <div class="panel">
+            <label>Marketplace</label><br />
+            <span>Professional Informations</span>
+            @if (Model.Companies.Count <= 0)
+            {
+                <div class="flex-content" style="padding: 100px 0px;">
+                    <div class="text-center">
+                        <p>You don't have a company registered.</p>
+                        <p>Create your website to be avaliable in Marketplace or search for other companies</p>
+                        @Html.RouteLink("Create your website ", "IndexCreate", new { @userId = Model.PosUserId }, new { @class = "btn btn-orange" })
+                        <br />
+                        <a href="#">Access Marketplace</a>
+                    </div>
+                </div>
+            }
+            else
+            {
+                <div style="padding-top: 15px;">
+                    <ul>
+                        <li class="flaticon-orange" style="margin-bottom: -5px;"><i class="flaticon-shop"></i>@Model.Companies[0].CompanyName</li>
+                        <li style="margin-left: 45px;">(@Model.Companies[0].Industries[0].Type)</li>
+                        <li class="flaticon-orange"><i class="flaticon-at-symbol"></i>@Model.Companies[0].Email</li>
+                        <li class="flaticon-orange"><i class="flaticon-technology"></i>@Model.Companies[0].PhoneNumber</li>
+                        <li class="flaticon-orange"><i class="flaticon-signs"></i>@Model.Companies[0].Address</li>
+                        <li class="flaticon-orange"><i class="flaticon-package"></i>@Model.Companies[0].Products.Count products</li>
+                        <li class="flaticon-orange"><i class="flaticon-file"></i>@Model.Companies[0].About</li>
+                    </ul>
+                </div>
+            }
+        </div>
+    </div>
+</div>
+<div class="col-xs-12 col-sm-8">
+
+</div>

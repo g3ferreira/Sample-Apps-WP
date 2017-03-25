@@ -1,0 +1,135 @@
+.parallax{
+    background-image: url("../Images/bg_home.png");
+    height: 120%;
+    width: 100%;
+    position: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.panel{
+    background-color: rgba(0, 0, 0, 0);
+    box-shadow: none;
+}
+
+.panel-body{
+    border-radius: 5px;    
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+.navbar{
+    background-color: rgba(0,0,0,0);
+}
+
+.navbar-default .navbar-brand img{
+    content: url("../Images/logo_8pos.png");
+}
+
+
+.navbar-default .navbar-brand img:after{
+    content: url("../Images/logo_8pos.png");
+}
+
+#landing
+{
+    text-align: left;
+    min-height: 100%;
+    color: #fff;
+    text-shadow: 1px 1px 5px rgba(0,0,0,0.5);
+}
+
+#landing .container{
+    margin-top: -100px;
+}
+
+#landing h1{
+    font-size: 4em;
+    font-weight: 900;
+}
+
+#landing p{
+    font-size: 1.3em;
+}
+
+#landing .btn{
+    font-weight: 600;
+}
+
+#features{
+    min-height: 100%;
+    background-color: #fff;
+    text-align: center;
+    position: relative;
+}
+
+#features p {
+    font-size: 1.1em;
+}
+
+#features .panel-body{
+    color: #fff;
+    min-height: 220px;
+}
+
+#features .panel-body:hover .btn-white{
+    opacity: 1;
+    z-index: 1;
+}
+
+#features .panel-body:hover .btn-orange{
+    background-color: rgba(0,0,0,0);
+    color: #fff;
+    border: 2px solid;
+    border-color: #fff;
+    padding: 9px 20px;
+}
+
+#features .btn-orange{
+    font-size: 1.2em;
+    padding: 10px 20px;
+    transition: background-color 0.5s ease;
+    width: 200px;
+}
+
+#features .btn-white{
+    font-weight: 800;
+    padding: 10px 30px;
+    cursor: pointer;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+
+#features .btn-white:hover{
+    background-color: #fff;
+    color: #df731b;
+}
+
+#whois{
+    background-color: #fff;
+    min-height: 100%;
+    position: relative;
+    color: #3c3c3c;
+}
+
+#whois p{
+    font-weight: 400;
+    font-size: 1.2em;
+    line-height: 26px;
+}
+
+#map{
+    height: 500px;
+    width: 100%;
+}
+
+@media (min-width: 768px){
+    #landing .container{
+        padding: 0 100px;
+    }
+    #whois{
+        box-shadow: inset 0px 200px 300px -250px rgba(0, 0, 0, 1);
+    }
+}

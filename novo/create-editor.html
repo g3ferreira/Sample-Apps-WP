@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>8POS</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="css/bootstrap.min.css">
+        <link rel="stylesheet" href="css/style.css">
+        <link rel="stylesheet" href="css/create.css">
+        <link rel="stylesheet" href="css/colors.css">
+        <link rel="stylesheet" href="css/motion-ui.min.css">
+        <script src="js/vendor/jquery.min.js"></script>
+        <script src="js/vendor/jcanvas.min.js"></script>
+        <script src="js/vendor/bootstrap.min.js"></script>
+        <script src="js/vendor/motion-ui.min.js"></script>
+        <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Permanent+Marker" rel="stylesheet">
+    <body>
+        <nav class="navbar navbar-black navbar-default-black navbar-fixed-top"></nav>
+        <div class="container">
+            <div class="text-center">
+                <h1>Create your website</h1>
+                <p>Insert informations about your company and show your products and services to new customers.</p>
+            </div>
+            <div class="row">
+                <ul class="nav nav-tabs nav-justified text-center">
+                    <li class="active"><label>Basic informations</label></li>
+                    <li><label>Customize</label></li>
+                    <li><label>Products and Services</label></li>
+                    <li><label>Resume</label></li>
+                </ul>
+                <br>
+                <div class="tab-content">
+                    <div class="tab-pane active" id="1">
+                        <div class="panel panel-default">
+                            <div class="panel-body">
+                                <form id="form-step-1">
+                                    <div class="row">
+                                        <div class="form-group col-xs-12 col-sm-6">
+                                            <label>Inform your industry*</label><br>
+                                            <select name="industry" class="form-control">
+                                                <option value="1">Other</option>
+                                                <option value="2">Vehicles</option>
+                                                <option value="3">Fabrics</option>
+                                                <option value="4">Fuels</option>
+                                                <option value="5">Hadware</option>
+                                            </select>
+                                        </div>
+                                        <div class="form-group col-xs-12 col-sm-6">
+                                            <label>What is company's name*</label>
+                                            <input type="text" name="company" class="form-control" id="company-name" placeholder="Company's name">
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-xs-12 col-md-3 col-sm-6 parent">
+                                            <span>Add your logo*</span>
+                                            <br><br>
+                                            <div id="box-logo" class="box-img">
+                                                <div id="input-logo" class="input-img">
+                                                    <input type="file" id="logo" class="input-file">
+                                                    <label for="logo">
+                                                        <img src="img/arrow_plus.png">
+                                                    </label><br>
+                                                    <p>
+                                                        Doesn't have a logo?<br>
+                                                        Choose one in our <a id="open-library">Logo Library</a>
+                                                    </p>
+                                                </div>
+                                                <div id="img-logo" class="img-selected flex-content">
+                                                    <img src="">
+                                                </div>
+                                            </div>
+                                            <div id="opt-logo" class="box-opt flex-content">
+                                                <img id="change-logo" class="arrow-change" src="img/arrow_change.png" alt="Trocar foto">
+                                                <img id="delete-logo" class="arrow-delete" src="img/arrow_delete.png" alt="Apagar fogo">
+                                            </div>
+                                            <br>
+                                        </div>
+                                        <div class="col-xs-12 col-md-3 col-sm-6 parent">
+                                            <span>Add your profile picture</span>
+                                            <br><br>
+                                            <div id="box-prof" class="box-img">
+                                                <div id="input-prof" class="input-img">
+                                                    <input type="file" id="prof" class="input-file">
+                                                    <label for="prof">
+                                                        <img src="img/arrow_plus.png">
+                                                    </label>
+                                                </div>
+                                                <div id="img-prof" class="img-selected flex-content">
+                                                    <img src="img/profile_picture.png">
+                                                </div>
+                                            </div>
+                                            <div id="opt-prof" class="box-opt flex-content">
+                                                <img id="change-prof" class="arrow-change" src="img/arrow_change.png" alt="Trocar foto">
+                                                <img id="delete-prof" class="arrow-delete" src="img/arrow_delete.png" alt="Apagar fogo">
+                                            </div>
+                                            <br>
+                                        </div>
+                                    </div>
+                                    <a id="button-step-1" class="btn btn-orange pull-right" href="#2" data-toggle="tab">NEXT</a>
+                                </form>
+                            </div>
+                        </div>
+                        <div id="logo-library" class="modal fast">
+                            <div class="modal-dialog modal-lg">
+                                <div class="modal-content">
+                                    <div class="modal-body">
+                                        <form>
+                                            <h5>Choose your pattern</h5>
+                                            <ul id="colors" class="list-inline">
+                                            </ul>
+                                            <h5>Choose your logo style</h5>
+                                            <div class="row flex-content">
+                                                <h4>Select a color pattern first</h4>
+                                            </div>
+                                            <div class="row">
+                                                <div class="canvas flex-content col-md-4">
+                                                    <canvas id="logo1" width="240" height="60">
+                                                    </canvas>
+                                                </div>
+                                                <div class="canvas flex-content col-md-4">
+                                                    <canvas id="logo2" width="240" height="60">
+                                                    </canvas>
+                                                </div>
+                                                <div class="canvas flex-content col-md-4">
+                                                    <canvas id="logo3" width="240" height="60">
+                                                    </canvas>
+                                                </div>
+                                            </div>
+                                        </form>
+                                        <a data-dismiss="modal" class="btn btn-orange">CANCEL</a>
+                                        <a class="btn btn-orange">SELECT</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab-pane" id="2">
+                        <div class="panel panel-default">
+                            <div class="panel-body">
+
+                            </div>
+                        </div>
+                        <a class="btn btn-orange" type="button" href="#3" data-toggle="tab">NEXT</a>
+                    </div>
+                    <div class="tab-pane" id="3">
+                        <div class="panel panel-default">
+                            <div class="panel-body">
+
+                            </div>
+                        </div>
+                        <a class="btn btn-orange" type="button" href="#4" data-toggle="tab">NEXT</a>
+                    </div>
+                    <div class="tab-pane" id="4">
+                        <div class="panel panel-default">
+                            <div class="panel-body">
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <footer></footer>
+        <script src="js/scripts.js"></script>
+        <script src="js/create.js"></script>
+    </body>
+</html>

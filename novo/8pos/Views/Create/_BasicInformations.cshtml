@@ -1,0 +1,103 @@
+﻿@model _8pos.Models.Entity.Company
+<fieldset>
+    <div class="panel">
+        <div class="row">
+            <div class="form-group col-xs-12 col-sm-3">
+                @Html.LabelFor(company => company.CompanyName)
+                @Html.TextBoxFor(company => company.CompanyName, new { @class = "form-control", maxlength = "30" })
+                @Html.ValidationMessageFor(company => company.CompanyName, "", new { @class = "text-danger" })
+            </div>
+            <div class="form-group col-xs-12 col-sm-3">
+                @Html.LabelFor(company => company.SelectedIndustry)
+                @Html.DropDownListFor(company => company.SelectedIndustry,
+          Model.Industries.Select(x => new SelectListItem { Text = x.Type, Value = x.Industry_Id.ToString() }),
+                 "", new { @class = "form-control" })
+                @Html.ValidationMessageFor(company => company.SelectedIndustry, "", new { @class = "text-danger" })
+            </div>
+            <div class="form-group col-xs-12 col-sm-3">
+                @Html.LabelFor(company => company.Email)
+
+                @Html.TextBoxFor(company => company.Email, new { @class = "form-control", type = "email", maxlength = "100" })
+                @Html.ValidationMessageFor(company => company.Email, "", new { @class = "text-danger" })
+            </div>
+            <div class="form-group col-xs-12 col-sm-3">
+                @Html.LabelFor(company => company.PhoneNumber)
+
+                @Html.TextBoxFor(company => company.PhoneNumber, new { @class = "form-control", type = "tel", maxlength = "15" })
+
+                @Html.ValidationMessageFor(company => company.PhoneNumber, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="form-group col-xs-12 col-sm-4">
+                @Html.LabelFor(company => company.Address)
+                @Html.TextBoxFor(company => company.Address, new { @class = "form-control", maxlength = "140" })
+                @Html.ValidationMessageFor(company => company.Address, "", new { @class = "text-danger" })
+            </div>
+            <div class="form-group col-xs-12 col-sm-2">
+                @Html.LabelFor(company => company.ZipCode)
+                @Html.TextBoxFor(company => company.ZipCode, new { @class = "form-control" })
+                @Html.ValidationMessageFor(company => company.ZipCode, "", new { @class = "text-danger" })
+            </div>
+            <div class="form-group col-xs-12 col-sm-4">
+                @Html.LabelFor(company => company.State)
+                @Html.TextBoxFor(company => company.State, new { @class = "form-control", maxlength = "30" })
+                @Html.ValidationMessageFor(company => company.State, "", new { @class = "text-danger" })
+            </div>
+            <div class="form-group col-xs-12 col-sm-2">
+                @Html.LabelFor(company => company.Country)
+                @Html.TextBoxFor(company => company.Country, new { @class = "form-control", maxlength = "30" })
+                @Html.ValidationMessageFor(company => company.Country, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="form-group col-xs-12 col-md-8">
+                @Html.LabelFor(company => company.About)
+                @Html.TextAreaFor(company => company.About, new { @class = "form-control", rows = "6", maxlength = "500" })
+                @Html.ValidationMessageFor(company => company.About, "", new { @class = "text-danger" })
+            </div>
+            <div class="form-group col-xs-6 col-md-2">
+                <label>Logo*</label>
+                <input type="file" name="logo" id="logo" class="input-file" />
+                <label for="logo">
+                    @{
+                        if (Model.backCompany)
+                        {
+                            <img src="@Html.Action("GetImageCompany", "Create", new { index = 0 })" />
+
+                        }
+                        else
+                        {
+                            <img src="~/Content/Images/ico_add_image.png" />
+
+                        }
+                    }
+                </label>
+            </div>
+            <div class="form-group col-xs-6 col-md-2">
+                <label>Profile</label>
+                <input type="file" name="profile" id="profile" class="input-file" />
+                <label for="profile">
+                    @{
+                        if (Model.backCompany && Model.Files.Get("profile").ContentLength > 0)
+                        {
+
+                            <img src="@Html.Action("GetImageCompany", "Create", new { index = 1 })" />
+                        }
+                        else
+                        {
+                            <img src="~/Content/Images/ico_add_image.png" />
+
+                        }
+                    }
+
+
+                </label>
+            </div>
+        </div>
+    </div>
+    @Html.ActionLink("Cancel", "Index", "Home", null, new { @class = "btn btn-white pull-left" })
+    <input type="submit" value="Next" id="btn-step-1" class="btn btn-orange pull-right" />
+</fieldset>
